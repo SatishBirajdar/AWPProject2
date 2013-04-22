@@ -1,11 +1,8 @@
 <!--
-Name : Satish Birajdar
+Name : Satish Birajdar and Simranjit Sidhu
 File Name : securedpage.php
-Description : A Mobile-Specific Web App for my portfolio site leveraging using
-			  accumulated knowledge of PHP, JavaScript, JQuery Mobile and MySQL.
+Description : To add new discussion.
 -->
-
-
 
 <?php
  
@@ -18,8 +15,6 @@ if (!isset($_SESSION['username'])) {
 if (isset($_SESSION['connection'])) {
         header('http://localhost/Project2/Logout.php');
 }
-
-
 
 ?>
 
@@ -48,8 +43,6 @@ if (isset($_SESSION['connection'])) {
 
 	<body>
 
-
-
 			<div data-role="page" id="login_needed">
 				  <div data-role="content"> 
 					<?php
@@ -63,47 +56,28 @@ if (isset($_SESSION['connection'])) {
 							<textarea name='newdiscussion' id='newdiscussion'>	</textarea> </tr>
 						<tr> <td>
 						
-								<input data-inline='true' data-theme='a' onclick='jsadd(this.form.newdiscussion.value)' type='submit' value='Post'>
+						<input data-inline='true' data-theme='a' onclick='jsadd(this.form.newdiscussion.value)' type='submit' value='Post'>
 								
-								</td><td>	
+						</td><td>	
 						<a data-role='button' data-inline='true' href='securedpage.php' data-transition='fade' data-theme='a'>
 								Close
-							</a></td></tr>
+						</a>
+						</td></tr>
 						</table>
 						</form>";
 						echo "<script>
-								function jsadd(d_title)
-								{
-								 
-									var title= d_title;
+						function jsadd(d_title)
+						{
+							var title= d_title;
 									
-									$.post('insert_discussion.php',{postdtitle:title});
-								 
-								 }
-								</script>";				
-							
-							function padd()
-							{
-								try
-								{
-									include ("include/db.php");    //Database connection
-									$title=$_POST['newdiscussion'];
-									$tuser=$_SESSION['username'];
-									mysql_query("INSERT INTO title_table(title, t_username)VALUES('$title', '$tuser')");
-									mysql_close($connection);
-									
-								}
-								catch(Exception $e)
-								{
-									echo $e->getMessage();
-								}
-							}
-							
+							$.post('insert_discussion.php',{postdtitle:title});
+						}
+						</script>";				
+						
 						?>
 					
-					
-				  </div>
+					</div>
 				</div>
 				
-				</body>
-				</html>
+	</body>
+</html>

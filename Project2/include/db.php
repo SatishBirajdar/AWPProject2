@@ -1,15 +1,23 @@
+<!--
+Name : Satish Birajdar and Simranjit Sidhu
+File Name : db.php
+Description : A desktop and Mobile-Specific Web Forum leveraging using
+			  accumulated knowledge of PHP, JavaScript, JQuery Mobile and MySQL.
+-->
+
 <?php
 
 /*** mysql hostname ***/
 $hostname = 'localhost';
 
 /*** mysql username ***/
-$username = 'root';
+$username = 'db200234918';
 
 /*** mysql password ***/
-$password = '';
+$password = '13126';
 
-$dbname = 'project2';
+/*** db name ***/
+$dbname = 'db200234918';
 
 try 
 {

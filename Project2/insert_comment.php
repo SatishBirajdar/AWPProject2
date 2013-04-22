@@ -1,17 +1,21 @@
-
+<!--
+Name : Satish Birajdar and Simranjit Sidhu
+File Name : insert_comment.php
+Description : add comment to the discussion.
+-->
 
     <?php
     session_start();
 	
 	if (!isset($_SESSION['$t'])) {
         header('http://localhost/Project2/securedpage.php');
-}
+	}	
 
 
  
-if (!isset($_SESSION['username'])) {
+	if (!isset($_SESSION['username'])) {
         header('http://localhost/Project2/loginproc.php');
-}
+	}
 	
 	include ("include/db.php");
     

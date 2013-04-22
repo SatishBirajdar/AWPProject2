@@ -1,3 +1,11 @@
+<!--
+Name : Satish Birajdar and Simranjit Sidhu
+File Name : Index.php
+Description : A desktop and Mobile-Specific Web Forum leveraging using
+			  accumulated knowledge of PHP, JavaScript, JQuery Mobile and MySQL.
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +43,7 @@
                 </h3>
                 
             </div>
-				<a data-role="button" data-inline="true" href="#Register" data-transition="fade" data-theme="" data-icon="">
+				<a data-role="button" data-inline="true" href="registration.php" data-transition="fade" data-theme="" data-icon="">
                     Register
                 </a>
                         
@@ -43,8 +51,7 @@
                     Login
                 </a>
 			
-            <div data-role="content" data-theme="a">
-                
+            <div data-role="content" data-theme="a">               
 				
 				<div id="D_button">
 					<a data-role="button" href="#login_needed" data-rel="dialog" data-transition="slidedown" data-inline="true" data-theme="a">
@@ -53,13 +60,10 @@
 				</div>
 				<h2>
                     Disscussions:
-                </h2>
+                </h2>				
 				
-				
-                <?php
-				
-				    
-						try
+                <?php				
+				    	try
 						{
 							include ("include/db.php");    //Database connection
 							$result = mysql_query("SELECT * FROM title_table");  //Query for displaying Business contact details
@@ -71,9 +75,9 @@
 								$t=$row['title'];
 								$result1= mysql_query("SELECT * FROM comment_table a WHERE a.title='".mysql_real_escape_string($t)."'");
 								echo "<table>";
-								while($row1=mysql_fetch_array($result1))
-								
-								{
+								while($row1=mysql_fetch_array($result1))								
+								{		
+													//display discussion content
 									echo "<tr><strong>Comment: </strong>".$row1['comments']."<label style='float:right;' for='username'>-> by ".$row1['c_username']."</label><br /></tr>";
 									
 								}
@@ -89,32 +93,6 @@
 						}
 				?>
 				
-   <!--            <div id="D_body" data-role="collapsible-set">
-                    <div data-role="collapsible" data-collapsed="true">
-                        <br />
-						<h3>
-                            I hate Java 
-                        </h3>
-                        <div data-role="fieldcontain">
-                            <label for="textarea1">
-                                Title
-                            </label>
-                            <textarea name="" id="textarea1" placeholder="">
-                            </textarea>
-                        </div>
-                        <a data-role="button" href="#page1">
-                            Add Comment
-                        </a>
-                        <input value="Submit" type="submit" />
-                    </div>
-                    <div data-role="collapsible" data-collapsed="false">
-                        <h3>
-                            Section Header 2
-                        </h3>
-                    </div>
-                </div>       -->
-				
-				
             </div>
             <div data-theme="a" data-role="footer" data-position="fixed">
                 <h3>
@@ -125,77 +103,9 @@
 		
 		
 		
-		<!--   -->
-		
-		
-		
-		<div data-role="page" id="Register">
-            <div data-theme="a" data-role="header">
-                <h3>
-                    TECH Forum
-                </h3>
-                <div data-role="navbar" data-iconpos="top">
-                    <ul>
-                        <li>
-                            <a href="#Home" data-transition="fade" data-theme="a" data-icon="back">
-                                Back
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#Register data-transition="fade" data-theme="a" data-icon="">
-                                Register
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div data-role="content" align="center">
-			   
-
+		<!-- Login Page  -->
 			
-                <form name="reg" action="user_reg.php" onsubmit="return validateForm()" method="post">
-				<table>
-					<tr>
-						<td><label for="email_address">*User Name :</label></td>
-						<td><input data-autosuggest-max-length="15" data-val="true" data-val-length-max="30" data-val-length-min="3" data-val-required="User Name is required" id="user_name" name="user_name" placeholder="User Name" type="text" value="" /></td>
-					</tr>
-					<tr>
-						<td><label for="email_address">*Email Addr :</label></td>
-						<td><input data-autosuggest-max-length="15" data-val="true" data-val-length-max="30" data-val-length-min="3" data-val-required="Email Address is required" id="email_address" name="email_address" placeholder="Email Address" type="text" value="" /></td>
-					</tr>
-					<tr>
-						<td><label for="email_address">*Confirm Email Addr :</label></td>
-						<td><input data-autosuggest-max-length="15" data-val="true" data-val-length-max="30" data-val-length-min="3" data-val-required="Email Address is required" id="confirm_email_address" name="confirm_email_address" placeholder="Confirm Email Address" type="text" value="" /></td>
-					</tr>
-					<tr>
-						<td><label for="password">*Password :</label></td>
-						<td><input data-autosuggest-max-length="30" data-val="true" data-val-length-max="60" data-val-length-min="3" data-val-required="Password is required" id="password" name="password" placeholder="Password" type="password" value="" /></td>
-					</tr>
-					<tr>
-						<td><label for="password">*Confirm Password :</label></td>
-						<td><input data-autosuggest-max-length="30" data-val="true" data-val-length-max="60" data-val-length-min="3" data-val-required="Confirm Password is required" id="confirm_password" name="confirm_password" placeholder="Confirm Password" type="password" value="" /></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<input data-inline="true" data-theme="d"  type="submit" value="Submit">		<!--submit button-->
-							<input data-inline="true" data-theme="d"  type="reset" value="Reset">		<!--reset button-->
-						</td>
-					</tr>
-				</table>
-				</form>
-				
-            </div>
-            <div data-theme="a" data-role="footer" data-position="fixed">
-                <h3>
-                    Web-Sailor @ 2013
-                </h3>
-            </div>
-        </div>
-		
-		<!--      -->
-		
-		        <div data-role="page" id="Login">
+	    <div data-role="page" id="Login">
             <div data-theme="a" data-role="header">
                 <h3>
                     TECH Forum
@@ -234,18 +144,18 @@
 						</table>
 					</div>
 				</form>
+							
             <div data-theme="a" data-role="footer" data-position="fixed">
                 <h3>
                     Web-Sailor @ 2013
                 </h3>
             </div>
         </div>
-
-		
-		
+	
 		       
 		
-		<!---->
+		<!--Authentication Nedded alert page-->
+		
 		<div data-role="page" id="login_needed">
 		  <div data-role="content"> 
 			<table align="center">
@@ -263,8 +173,5 @@
 			
 		  </div>
 		</div>
-		
-		
-		
     </body>
 </html>

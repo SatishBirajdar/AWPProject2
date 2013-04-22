@@ -1,8 +1,7 @@
 <!--
-Name : Satish Birajdar
+Name : Satish Birajdar and Simranjit Sidhu
 File Name : Logout.php
-Description : A Mobile-Specific Web App for my portfolio site leveraging using
-			  accumulated knowledge of PHP, JavaScript, JQuery Mobile and MySQL.
+Description : to break all mysql connection and destroy session.
 -->
 
 <?php

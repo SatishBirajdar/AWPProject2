@@ -1,16 +1,15 @@
 <!--
-Name : Satish Birajdar
+Name : Satish Birajdar and Simranjit Sidhu
 File Name : Incorrect_Login.php
-Description : A Mobile-Specific Web App for my portfolio site leveraging using
-			  accumulated knowledge of PHP, JavaScript, JQuery Mobile and MySQL.
+Description : This is displayed for incorrect login.
 -->
 
 
 <?php
  
-if (isset($_SESSION['username'])) {
+	if (isset($_SESSION['username'])) {
         header('http://localhost/Assignment3_mobile/securedpage.php');		//maintain session between pages
-}
+	}
 
 ?>
 <!DOCTYPE html>

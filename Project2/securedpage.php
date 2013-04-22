@@ -1,8 +1,7 @@
 <!--
-Name : Satish Birajdar
+Name : Satish Birajdar and Simranjit Sidhu
 File Name : securedpage.php
-Description : A Mobile-Specific Web App for my portfolio site leveraging using
-			  accumulated knowledge of PHP, JavaScript, JQuery Mobile and MySQL.
+Description : Logined User secured page with session.
 -->
 
 
@@ -49,15 +48,16 @@ if (isset($_SESSION['connection'])) {
 	<body>
 
 			<div data-role="page" id="S_Home">
-	
-		
+			
 				<div data-theme="a" data-role="header">
 					<h3>
 						TECH Forum
 					</h3>
 					
 				</div>
-				
+				<a data-role="button" href="edit_profile.php" data-inline="true" data-theme="d">
+					Edit Profile
+				</a>
 			
 				<div data-role="content" data-theme="a">
 					<form method=POST action="Logout.php">	
@@ -83,10 +83,8 @@ if (isset($_SESSION['connection'])) {
 					
 					<div>
 					
-					
 					<?php
 					
-						
 							try
 							{
 								include ("include/db.php");    //Database connection
@@ -108,15 +106,7 @@ if (isset($_SESSION['connection'])) {
 									echo "<tr><div data-role='fieldcontain'>";
 									echo "<label for='comment'>Comment</label><textarea name='comment' id='comment' placeholder=''>	</textarea>	</div></tr>";
 									
-									/*echo "<tr><a data-role='button' id='".$t."'  data-inline='true' data-rel='dialog' onclick='AddComment(this.id,$('#comment').val())' >Add Comment</a></tr>";
-									*/
-									
 									echo "<input data-inline='true' data-theme='d' id='".$t."' onclick='AddComment(this.id,this.form.comment.value)' type='submit' value='Add Comment'>";
-									
-									
-									//<button id=123 type='submit' value=uniqueId545>Clear Selection</button>
-									//onclick='javascript:getUniqueButtonValue($(this).val());'
-									
 									echo "</form></table></div></div><br />";
 								}
 								echo "</div>";
@@ -125,7 +115,6 @@ if (isset($_SESSION['connection'])) {
 								
 								function getUniqueButtonValue(value)
 								{
-
 									alert(value);
 									alert('comment '+ clicked_title);
 								}
@@ -133,8 +122,7 @@ if (isset($_SESSION['connection'])) {
 								function AddComment(clicked_title,comment) 
 								{
 									var title= clicked_title;
-									var comment= comment;
-									
+									var comment= comment;									
 									$.post('insert_comment.php',{posttitle:title,postcomment:comment});
 									
 								}</script>";
